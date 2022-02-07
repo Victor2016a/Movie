@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="122" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="140" id="XX0-36-KL1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="140" id="XX0-36-KL1" customClass="MovieTableViewCell" customModule="Rest_API" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XX0-36-KL1" id="kql-mL-ocM">
@@ -97,6 +97,13 @@
                                                 <constraint firstItem="o3S-iP-Bt3" firstAttribute="top" secondItem="v6G-hw-hC2" secondAttribute="bottom" constant="25" id="z1R-tX-mnJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieOverview" destination="o3S-iP-Bt3" id="b3z-JY-CW2"/>
+                                            <outlet property="moviePoster" destination="CQI-y6-8OF" id="YYy-r1-rg4"/>
+                                            <outlet property="movieRate" destination="J2a-C5-mEk" id="Rpb-90-Dsl"/>
+                                            <outlet property="movieTitle" destination="MPs-HP-KH7" id="Um6-XG-SqH"/>
+                                            <outlet property="movieYear" destination="v6G-hw-hC2" id="wNa-tc-sHj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
