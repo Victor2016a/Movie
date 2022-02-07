@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		136F5DAB27B150540066125E /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F5DAA27B150540066125E /* ApiService.swift */; };
 		13BDBBE427B038B9006259D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDBBE327B038B9006259D5 /* AppDelegate.swift */; };
 		13BDBBE627B038B9006259D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDBBE527B038B9006259D5 /* SceneDelegate.swift */; };
 		13BDBBE827B038B9006259D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDBBE727B038B9006259D5 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		136F5DAA27B150540066125E /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		13BDBBE027B038B8006259D5 /* Rest API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rest API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BDBBE327B038B9006259D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13BDBBE527B038B9006259D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				13BDBBE527B038B9006259D5 /* SceneDelegate.swift */,
 				13BDBBE727B038B9006259D5 /* ViewController.swift */,
 				13BDBBF727B03A1B006259D5 /* Model.swift */,
+				136F5DAA27B150540066125E /* ApiService.swift */,
 				13BDBBE927B038B9006259D5 /* Main.storyboard */,
 				13BDBBEC27B038BB006259D5 /* Assets.xcassets */,
 				13BDBBEE27B038BB006259D5 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13BDBBE827B038B9006259D5 /* ViewController.swift in Sources */,
+				136F5DAB27B150540066125E /* ApiService.swift in Sources */,
 				13BDBBE427B038B9006259D5 /* AppDelegate.swift in Sources */,
 				13BDBBE627B038B9006259D5 /* SceneDelegate.swift in Sources */,
 				13BDBBF827B03A1B006259D5 /* Model.swift in Sources */,
