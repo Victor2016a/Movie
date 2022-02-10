@@ -9,11 +9,36 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var moviePoster: UIImageView!
-    @IBOutlet weak var movieTitle: UILabel!
-    @IBOutlet weak var movieYear: UILabel!
-    @IBOutlet weak var movieOverview: UILabel!
-    @IBOutlet weak var movieRate: UILabel!
+    private var moviePosterImage: UIImageView = {
+        let image = UIImageView()
+        return image
+    }()
+    private var movieTitleLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    private var movieYearLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    private var movieOverviewLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    private var movieRateLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    private var imageStar: UIImage = {
+        let image = UIImage()
+        return image
+    }()
+    
+    private let titleViewLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
     
     private var urlString: String = ""
     
@@ -25,25 +50,25 @@ class MovieTableViewCell: UITableViewCell {
     //Update the UI Views
     private func updateUI(title: String?, releaseDate: String?, rating: Double?, overview: String?, poster: String?){
         
-        self.movieTitle.text = title
+        self.movieTitleLabel.text = title
         
-        self.movieYear.text = convertDateFormater(releaseDate)
+        self.movieYearLabel.text = convertDateFormater(releaseDate)
         
         guard let rate = rating else {return}
-        self.movieRate.text = String(rate)
+        self.movieRateLabel.text = String(rate)
         
-        self.movieOverview.text = overview
+        self.movieOverviewLabel.text = overview
         
         guard let posterString = poster else {return}
         urlString = "https://image.tmdb.org/t/p/w300" + posterString
         
         guard let posterImageURL = URL(string: urlString) else {
-            self.moviePoster.image = UIImage(named: "noImageAvailable")
+            self.moviePosterImage.image = UIImage(named: "noImageAvailable")
             return
         }
         
         //Before we download the image we clear out th old one
-        self.moviePoster.image = nil
+        self.moviePosterImage.image = nil
         
         getImageDataFrom(url: posterImageURL)
         
@@ -68,7 +93,7 @@ class MovieTableViewCell: UITableViewCell {
             
             DispatchQueue.main.async {
                 if let image = UIImage(data: data){
-                    self.moviePoster.image = image
+                    self.moviePosterImage.image = image
                 }
             }
             

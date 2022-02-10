@@ -64,19 +64,51 @@
 		13BDBBE227B038B8006259D5 /* Rest API */ = {
 			isa = PBXGroup;
 			children = (
+				13C9179B27B57D2F001D96B6 /* Model */,
+				13C9179A27B57D2C001D96B6 /* ViewModel */,
+				13C9179927B57D27001D96B6 /* View */,
+				13C9179827B57D25001D96B6 /* Controller */,
 				13BDBBE327B038B9006259D5 /* AppDelegate.swift */,
 				13BDBBE527B038B9006259D5 /* SceneDelegate.swift */,
-				13BDBBE727B038B9006259D5 /* MovieViewController.swift */,
-				13BDBBF727B03A1B006259D5 /* Model.swift */,
 				136F5DAA27B150540066125E /* ApiService.swift */,
-				136F5DAE27B15E350066125E /* MovieViewModel.swift */,
-				136F5DB027B1959B0066125E /* MovieTableViewCell.swift */,
 				13BDBBE927B038B9006259D5 /* Main.storyboard */,
 				13BDBBEC27B038BB006259D5 /* Assets.xcassets */,
 				13BDBBEE27B038BB006259D5 /* LaunchScreen.storyboard */,
 				13BDBBF127B038BB006259D5 /* Info.plist */,
 			);
 			path = "Rest API";
+			sourceTree = "<group>";
+		};
+		13C9179827B57D25001D96B6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				13BDBBE727B038B9006259D5 /* MovieViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		13C9179927B57D27001D96B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				136F5DB027B1959B0066125E /* MovieTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		13C9179A27B57D2C001D96B6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				136F5DAE27B15E350066125E /* MovieViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		13C9179B27B57D2F001D96B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				13BDBBF727B03A1B006259D5 /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
