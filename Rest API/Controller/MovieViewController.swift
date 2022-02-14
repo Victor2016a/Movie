@@ -9,11 +9,8 @@ import UIKit
 
 class MovieViewController: UIViewController {
         
-    private var tableViewMovieCode: UITableView = {
-        let table = UITableView()
-        table.register(MovieTableViewCell.self, forCellReuseIdentifier: "cellcode")
-        return table
-    }()
+    @IBOutlet weak var tableView: UITableView!
+
     
     private var viewModel = MovieViewModel()
     
@@ -25,9 +22,9 @@ class MovieViewController: UIViewController {
     
     private func loadUpComingMoviesData(){
         viewModel.fetchPopularMoviesData { [weak self] in
-            self?.tableViewMovieCode.dataSource = self
-            self?.tableViewMovieCode.delegate = self
-            self?.tableViewMovieCode.reloadData()
+            self?.tableView.dataSource = self
+            self?.tableView.delegate = self
+            self?.tableView.reloadData()
         }
     }
 
@@ -40,7 +37,7 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellcode", for: indexPath) as! MovieTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieTableViewCell
         
         let movie = viewModel.cellForRowAt(indexPath: indexPath)
         cell.setCellWithValuesOf(movie)
