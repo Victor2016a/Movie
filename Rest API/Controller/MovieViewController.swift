@@ -8,6 +8,7 @@
 import UIKit
 
 class MovieViewController: UIViewController {
+    
         
     private var tableViewMovieCode: UITableView = {
         let table = UITableView()
@@ -19,7 +20,7 @@ class MovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addTitleView()
         loadUpComingMoviesData()
     }
     
@@ -29,6 +30,25 @@ class MovieViewController: UIViewController {
             self?.tableViewMovieCode.delegate = self
             self?.tableViewMovieCode.reloadData()
         }
+    }
+    
+    func addTitleView(){
+        let labelTitle = UILabel()
+        
+        labelTitle.text = "Popular Movies"
+        labelTitle.backgroundColor = .black
+        labelTitle.textColor = .white
+        labelTitle.font = .boldSystemFont(ofSize: 30)
+        labelTitle.textAlignment = .center
+        
+        view.addSubview(labelTitle)
+        
+        labelTitle.translatesAutoresizingMaskIntoConstraints = false
+        labelTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        labelTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        labelTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        labelTitle.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        
     }
 
 }
@@ -47,9 +67,7 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+
     
 }
 

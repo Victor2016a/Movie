@@ -35,10 +35,7 @@ class MovieTableViewCell: UITableViewCell {
         return image
     }()
     
-    private let titleViewLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    
     
     private var urlString: String = ""
     
@@ -115,4 +112,5 @@ class MovieTableViewCell: UITableViewCell {
         return fixDate
     }
     
+
 }
