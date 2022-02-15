@@ -103,7 +103,7 @@ class MovieTableViewCell: UITableViewCell {
 //        self.moviePoster.image = nil
 //
 //        getImageDataFrom(url: posterImageURL)
-        
+        //
     }
     
     //MARK - Get Image Data
