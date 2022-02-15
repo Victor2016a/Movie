@@ -10,22 +10,28 @@ import UIKit
 class MovieViewController: UIViewController {
         
     @IBOutlet weak var tableView: UITableView!
-
+    
     
     private var viewModel = MovieViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureTableView()
         loadUpComingMoviesData()
     }
     
+    
     private func loadUpComingMoviesData(){
         viewModel.fetchPopularMoviesData { [weak self] in
-            self?.tableView.dataSource = self
-            self?.tableView.delegate = self
+            
             self?.tableView.reloadData()
         }
+    }
+    
+    private func configureTableView() {
+        
+        tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.dataSource = self
     }
 
 }
@@ -43,9 +49,6 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setCellWithValuesOf(movie)
         
         return cell
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
