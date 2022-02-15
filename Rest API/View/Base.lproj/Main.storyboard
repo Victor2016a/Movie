@@ -16,16 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Movies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zG-aI-Imm">
-                                <rect key="frame" x="0.0" y="38" width="414" height="55"/>
-                                <color key="backgroundColor" systemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="JMN-Ry-oP9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.15697675189999999" green="0.87782481530000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hrp-39-faQ">
                                 <rect key="frame" x="0.0" y="89" width="414" height="807"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -34,11 +24,6 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="3zG-aI-Imm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AXD-z1-FRW"/>
-                            <constraint firstItem="3zG-aI-Imm" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="38" id="ISN-UT-7Ud"/>
-                            <constraint firstItem="3zG-aI-Imm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xCT-9g-KZd"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="hrp-39-faQ" id="bQN-kL-4Ao"/>
@@ -50,9 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

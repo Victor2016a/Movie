@@ -11,11 +11,23 @@ class MovieViewController: UIViewController {
         
     @IBOutlet weak var tableView: UITableView!
     
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Popular Movies"
+        label.textColor = .white
+        label.backgroundColor = .black
+        label.font = .systemFont(ofSize: 25)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     private var viewModel = MovieViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
+        setupConstraints()
         configureTableView()
         loadUpComingMoviesData()
     }
@@ -32,6 +44,22 @@ class MovieViewController: UIViewController {
         
         tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
+    }
+    
+    private func setupViews(){
+        view.addSubview(titleLabel)
+    }
+    
+    private func setupConstraints() {
+        
+        NSLayoutConstraint.activate([
+            
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: tableView.topAnchor),
+            
+        ])
     }
 
 }

@@ -56,16 +56,23 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     private func setupViews() {
-        contentView.addSubview(movieRate)
+        contentView.addSubview(moviePoster)
     }
     
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            movieRate.topAnchor.constraint(equalTo: contentView.topAnchor),
-            movieRate.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            movieRate.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            movieRate.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            
+            moviePoster.topAnchor.constraint(equalTo: contentView.topAnchor),
+//            moviePoster.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            moviePoster.heightAnchor.constraint(equalToConstant: 200),
+            moviePoster.widthAnchor.constraint(equalToConstant: 130),
+            moviePoster.leadingAnchor.constraint(equalTo: contentView.leadingAnchor ),
+            moviePoster.bottomAnchor.constraint(equalTo: contentView.bottomAnchor ),
+            
+           
+            
+            
         ])
         
         
@@ -86,24 +93,24 @@ class MovieTableViewCell: UITableViewCell {
 //
 //        self.movieYear.text = convertDateFormater(releaseDate)
 //
-        guard let rate = rating else {return}
-        self.movieRate.text = String(rate)
+//        guard let rate = rating else {return}
+//        self.movieRate.text = String(rate)
         
 //        self.movieOverview.text = overview
         
-//        guard let posterString = poster else {return}
-//        urlString = "https://image.tmdb.org/t/p/w300" + posterString
-//
-//        guard let posterImageURL = URL(string: urlString) else {
-//            self.moviePoster.image = UIImage(named: "noImageAvailable")
-//            return
-//        }
-//
-//        //Before we download the image we clear out th old one
-//        self.moviePoster.image = nil
-//
-//        getImageDataFrom(url: posterImageURL)
-        //
+        guard let posterString = poster else {return}
+        urlString = "https://image.tmdb.org/t/p/w300" + posterString
+
+        guard let posterImageURL = URL(string: urlString) else {
+            self.moviePoster.image = UIImage(named: "noImageAvailable")
+            return
+        }
+
+        //Before we download the image we clear out th old one
+        self.moviePoster.image = nil
+
+        getImageDataFrom(url: posterImageURL)
+        
     }
     
     //MARK - Get Image Data
