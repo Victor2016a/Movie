@@ -8,15 +8,20 @@
 import UIKit
 
 class MovieViewController: UIViewController {
-        
-    @IBOutlet weak var tableView: UITableView!
+            
+    private var tableView: UITableView = {
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        return table
+    }()
+    
     
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Popular Movies"
         label.textColor = .white
         label.backgroundColor = .black
-        label.font = .systemFont(ofSize: 25)
+        label.font = .systemFont(ofSize: 27)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -41,13 +46,14 @@ class MovieViewController: UIViewController {
     }
     
     private func configureTableView() {
-        
         tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "cell")
+
         tableView.dataSource = self
     }
     
     private func setupViews(){
         view.addSubview(titleLabel)
+        view.addSubview(tableView)
     }
     
     private func setupConstraints() {
@@ -58,7 +64,12 @@ class MovieViewController: UIViewController {
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: tableView.topAnchor),
-//            titleLabel.heightAnchor.constraint(equalToConstant: 60)
+            titleLabel.heightAnchor.constraint(equalToConstant: 60),
+            
+            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             
         ])
     }
