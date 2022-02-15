@@ -58,6 +58,7 @@ class MovieViewController: UIViewController {
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: tableView.topAnchor),
+//            titleLabel.heightAnchor.constraint(equalToConstant: 60)
             
         ])
     }

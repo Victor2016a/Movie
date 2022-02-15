@@ -9,12 +9,6 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     
-//    @IBOutlet weak var moviePoster: UIImageView!
-//    @IBOutlet weak var movieTitle: UILabel!
-//    @IBOutlet weak var movieYear: UILabel!
-//    @IBOutlet weak var movieOverview: UILabel!
-//    @IBOutlet weak var movieRate: UILabel!
-    
     private var moviePoster: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -23,26 +17,38 @@ class MovieTableViewCell: UITableViewCell {
     
     private var movieTitle: UILabel = {
         let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 17)
+        label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private var movieYear: UILabel = {
         let label = UILabel()
+        label.textColor = .lightGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private var movieOverview: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private var movieRate: UILabel = {
         let label = UILabel()
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    private let starRating: UIImageView = {
+        var image = UIImageView()
+        image = UIImageView(image: UIImage(named: "ratedStar"))
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -57,20 +63,42 @@ class MovieTableViewCell: UITableViewCell {
     
     private func setupViews() {
         contentView.addSubview(moviePoster)
+        contentView.addSubview(movieTitle)
+        contentView.addSubview(movieYear)
+        contentView.addSubview(movieOverview)
+        contentView.addSubview(starRating)
+        contentView.addSubview(movieRate)
     }
     
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
             
-            moviePoster.topAnchor.constraint(equalTo: contentView.topAnchor),
-//            moviePoster.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            moviePoster.heightAnchor.constraint(equalToConstant: 200),
-            moviePoster.widthAnchor.constraint(equalToConstant: 130),
-            moviePoster.leadingAnchor.constraint(equalTo: contentView.leadingAnchor ),
-            moviePoster.bottomAnchor.constraint(equalTo: contentView.bottomAnchor ),
+            moviePoster.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            moviePoster.heightAnchor.constraint(equalToConstant: 150),
+            moviePoster.widthAnchor.constraint(equalToConstant: 100),
+            moviePoster.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            moviePoster.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             
-           
+            movieTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            movieTitle.leadingAnchor.constraint(equalTo: moviePoster.trailingAnchor, constant: 10),
+            movieTitle.trailingAnchor.constraint(equalTo: starRating.leadingAnchor, constant: -5),
+            
+            movieYear.topAnchor.constraint(equalTo: movieTitle.bottomAnchor, constant: 5),
+            movieYear.leadingAnchor.constraint(equalTo: moviePoster.trailingAnchor, constant: 10),
+            movieYear.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
+            
+            movieOverview.leadingAnchor.constraint(equalTo: moviePoster.trailingAnchor, constant: 10),
+            movieOverview.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            movieOverview.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            
+            starRating.heightAnchor.constraint(equalToConstant: 50),
+            starRating.widthAnchor.constraint(equalToConstant: 50),
+            starRating.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            
+            movieRate.topAnchor.constraint(equalTo: starRating.bottomAnchor),
+            movieRate.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            movieRate.centerXAnchor.constraint(equalTo: starRating.centerXAnchor)
             
             
         ])
@@ -89,14 +117,14 @@ class MovieTableViewCell: UITableViewCell {
     //Update the UI Views
     private func updateUI(title: String?, releaseDate: String?, rating: Double?, overview: String?, poster: String?){
         
-//        self.movieTitle.text = title
-//
-//        self.movieYear.text = convertDateFormater(releaseDate)
-//
-//        guard let rate = rating else {return}
-//        self.movieRate.text = String(rate)
+        self.movieTitle.text = title
+
+        self.movieYear.text = convertDateFormater(releaseDate)
+
+        guard let rate = rating else {return}
+        self.movieRate.text = String(rate)
         
-//        self.movieOverview.text = overview
+        self.movieOverview.text = overview
         
         guard let posterString = poster else {return}
         urlString = "https://image.tmdb.org/t/p/w300" + posterString
