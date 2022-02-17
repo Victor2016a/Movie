@@ -16,27 +16,20 @@ class MovieViewController: UIViewController {
     }()
     
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Popular Movies"
-        label.textColor = .white
-        label.backgroundColor = .black
-        label.font = .systemFont(ofSize: 27)
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
     
     private var viewModel = MovieViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
-        setupConstraints()
         configureTableView()
         loadUpComingMoviesData()
     }
     
+    override func loadView() {
+        super.loadView()
+        setupViews()
+        setupConstraints()
+    }
     
     private func loadUpComingMoviesData(){
         viewModel.fetchPopularMoviesData { [weak self] in
@@ -47,26 +40,19 @@ class MovieViewController: UIViewController {
     
     private func configureTableView() {
         tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "cell")
-
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     private func setupViews(){
-        view.addSubview(titleLabel)
+        title = "Popular Movies"
         view.addSubview(tableView)
     }
     
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: tableView.topAnchor),
-            titleLabel.heightAnchor.constraint(equalToConstant: 60),
-            
-            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -90,6 +76,15 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movieDetails = viewModel.cellForRowAt(indexPath: indexPath)
+        let movieDetailsVC = MovieDetailsViewController(movieDetails: movieDetails)
+        movieDetailsVC.view.backgroundColor = .white
+        movieDetailsVC.title = movieDetails.title
+        navigationController?.pushViewController(movieDetailsVC, animated: true)
+    }
+
     
 }
 
