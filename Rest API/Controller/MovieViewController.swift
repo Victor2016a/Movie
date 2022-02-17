@@ -8,14 +8,8 @@
 import UIKit
 
 class MovieViewController: UIViewController {
-            
-    private var tableView: UITableView = {
-        let table = UITableView()
-        table.translatesAutoresizingMaskIntoConstraints = false
-        return table
-    }()
     
-    
+    var baseView = MovieView()
     
     private var viewModel = MovieViewModel()
     
@@ -26,43 +20,25 @@ class MovieViewController: UIViewController {
     }
     
     override func loadView() {
-        super.loadView()
-        setupViews()
-        setupConstraints()
+        title = "Popular Movies"
+        view = baseView
     }
     
     private func loadUpComingMoviesData(){
         viewModel.fetchPopularMoviesData { [weak self] in
-            
-            self?.tableView.reloadData()
+            self?.baseView.tableView.reloadData()
         }
     }
     
     private func configureTableView() {
-        tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.dataSource = self
-        tableView.delegate = self
-    }
-    
-    private func setupViews(){
-        title = "Popular Movies"
-        view.addSubview(tableView)
-    }
-    
-    private func setupConstraints() {
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            
-        ])
+        baseView.tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "cell")
+        baseView.tableView.dataSource = self
+        baseView.tableView.delegate = self
     }
 
 }
 
-extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
+extension MovieViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section: section)
@@ -76,6 +52,11 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+
+    
+}
+
+extension MovieViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movieDetails = viewModel.cellForRowAt(indexPath: indexPath)
@@ -84,7 +65,5 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
         movieDetailsVC.title = movieDetails.title
         navigationController?.pushViewController(movieDetailsVC, animated: true)
     }
-
-    
 }
 
