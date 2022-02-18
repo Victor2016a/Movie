@@ -6,14 +6,20 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class MovieViewController: UIViewController {
     
     var baseView = MovieView()
+    var activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .init(x: 10, y: 10), size: .init(width: 400, height: 400)), type: .ballBeat, color: .systemPink, padding: nil)
     private var viewModel = MovieViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         configureTableView()
         loadUpComingMoviesData()
     }
@@ -24,8 +30,12 @@ class MovieViewController: UIViewController {
     }
     
     private func loadUpComingMoviesData(){
-        viewModel.fetchPopularMoviesData { [weak self] in
-            self?.baseView.tableView.reloadData()
+        activityIndicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            self.viewModel.fetchPopularMoviesData { [weak self] in
+                self?.activityIndicator.stopAnimating()
+                self?.baseView.tableView.reloadData()
+            }
         }
     }
     

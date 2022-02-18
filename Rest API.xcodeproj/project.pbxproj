@@ -21,6 +21,7 @@
 		13BDBBED27B038BB006259D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BDBBEC27B038BB006259D5 /* Assets.xcassets */; };
 		13BDBBF027B038BB006259D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13BDBBEE27B038BB006259D5 /* LaunchScreen.storyboard */; };
 		13BDBBF827B03A1B006259D5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDBBF727B03A1B006259D5 /* Model.swift */; };
+		918792873FAD7746E2E1E89D /* Pods_Rest_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8C6A25FCD1C96768DF5668 /* Pods_Rest_API.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,9 @@
 		13BDBBEF27B038BB006259D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13BDBBF127B038BB006259D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13BDBBF727B03A1B006259D5 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		6A8C6A25FCD1C96768DF5668 /* Pods_Rest_API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rest_API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4698125BF0D6A7E7C178758 /* Pods-Rest API.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rest API.release.xcconfig"; path = "Target Support Files/Pods-Rest API/Pods-Rest API.release.xcconfig"; sourceTree = "<group>"; };
+		E56B00EACAFBA4E008DB584A /* Pods-Rest API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rest API.debug.xcconfig"; path = "Target Support Files/Pods-Rest API/Pods-Rest API.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,12 +51,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				918792873FAD7746E2E1E89D /* Pods_Rest_API.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CA1E5D67E53005DB4D2D4A2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E56B00EACAFBA4E008DB584A /* Pods-Rest API.debug.xcconfig */,
+				D4698125BF0D6A7E7C178758 /* Pods-Rest API.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		110F3E1E6F43AD6015350613 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A8C6A25FCD1C96768DF5668 /* Pods_Rest_API.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		13872EDD27BEB90B00BA96A2 /* NetWorking */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +97,8 @@
 			children = (
 				13BDBBE227B038B8006259D5 /* Rest API */,
 				13BDBBE127B038B8006259D5 /* Products */,
+				0CA1E5D67E53005DB4D2D4A2 /* Pods */,
+				110F3E1E6F43AD6015350613 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,9 +171,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13BDBBF427B038BB006259D5 /* Build configuration list for PBXNativeTarget "Rest API" */;
 			buildPhases = (
+				6C321A5B34C825675C1FA2FF /* [CP] Check Pods Manifest.lock */,
 				13BDBBDC27B038B8006259D5 /* Sources */,
 				13BDBBDD27B038B8006259D5 /* Frameworks */,
 				13BDBBDE27B038B8006259D5 /* Resources */,
+				49D66B4CA08DA90415BFD7C6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -204,6 +231,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49D66B4CA08DA90415BFD7C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rest API/Pods-Rest API-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rest API/Pods-Rest API-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rest API/Pods-Rest API-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C321A5B34C825675C1FA2FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Rest API-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		13BDBBDC27B038B8006259D5 /* Sources */ = {
@@ -364,6 +433,7 @@
 		};
 		13BDBBF527B038BB006259D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E56B00EACAFBA4E008DB584A /* Pods-Rest API.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -392,6 +462,7 @@
 		};
 		13BDBBF627B038BB006259D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4698125BF0D6A7E7C178758 /* Pods-Rest API.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
