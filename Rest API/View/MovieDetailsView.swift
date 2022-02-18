@@ -67,7 +67,6 @@ class MovieDetailsView: UIView {
     }
     
     private func setupViews() {
-        
         addSubview(moviePoster)
         addSubview(movieYear)
         addSubview(movieRate)
@@ -77,7 +76,6 @@ class MovieDetailsView: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            
             
             moviePoster.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             moviePoster.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -103,6 +101,4 @@ class MovieDetailsView: UIView {
             movieRate.topAnchor.constraint(equalTo: movieYear.bottomAnchor, constant: 20)
         ])
     }
-    
-   
 }

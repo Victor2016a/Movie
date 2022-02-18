@@ -99,8 +99,6 @@ class MovieTableViewCell: UITableViewCell {
             movieRate.topAnchor.constraint(equalTo: starRating.bottomAnchor),
             movieRate.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             movieRate.centerXAnchor.constraint(equalTo: starRating.centerXAnchor)
-            
-            
         ])
         
         
@@ -166,20 +164,6 @@ class MovieTableViewCell: UITableViewCell {
             
         }.resume()
         
-    }
-    
-    //Mark - Convert date format
-    func convertDateFormater(_ date: String?) -> String {
-        var fixDate = ""
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        if let originalDate = date {
-            if let newDate = dateFormatter.date(from: originalDate){
-                dateFormatter.dateFormat = "dd.MM.yyyy"
-                fixDate = dateFormatter.string(from: newDate)
-            }
-        }
-        return fixDate
     }
     
 }

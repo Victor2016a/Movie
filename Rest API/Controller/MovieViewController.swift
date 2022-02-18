@@ -10,7 +10,6 @@ import UIKit
 class MovieViewController: UIViewController {
     
     var baseView = MovieView()
-    
     private var viewModel = MovieViewModel()
     
     override func viewDidLoad() {
@@ -35,7 +34,6 @@ class MovieViewController: UIViewController {
         baseView.tableView.dataSource = self
         baseView.tableView.delegate = self
     }
-
 }
 
 extension MovieViewController: UITableViewDataSource {
@@ -46,10 +44,8 @@ extension MovieViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieTableViewCell
-        
         let movie = viewModel.cellForRowAt(indexPath: indexPath)
         cell.setCellWithValuesOf(movie)
-        
         return cell
     }
 
@@ -57,7 +53,6 @@ extension MovieViewController: UITableViewDataSource {
 }
 
 extension MovieViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movieDetails = viewModel.cellForRowAt(indexPath: indexPath)
         let movieDetailsVC = MovieDetailsViewController(movieDetails: movieDetails)

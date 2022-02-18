@@ -57,16 +57,13 @@ class MovieDetailsViewController: UIViewController {
             baseView.moviePoster.image = UIImage(named: "noImageAvailable")
             return
         }
-        
         getImageDataFrom(url: posterImageURL)
-        
     }
 
     //MARK - Get Image Data
     private func getImageDataFrom(url: URL){
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
             //Handle error
             if let error = error {
                 print("DataTask error: \(error.localizedDescription) ")
@@ -86,6 +83,5 @@ class MovieDetailsViewController: UIViewController {
             }
             
         }.resume()
-
      }
 }
