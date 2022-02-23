@@ -44,7 +44,7 @@ class MovieTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let starRating: UIImageView = {
+    private var starRating: UIImageView = {
         var image = UIImageView()
         image = UIImageView(image: UIImage(named: "ratedStar"))
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -71,7 +71,6 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     private func setupConstraints() {
-        
         NSLayoutConstraint.activate([
             
             moviePoster.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
@@ -100,43 +99,47 @@ class MovieTableViewCell: UITableViewCell {
             movieRate.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             movieRate.centerXAnchor.constraint(equalTo: starRating.centerXAnchor)
         ])
-        
-        
-        
     }
     
     private var urlString: String = ""
     
     //Setup Movies Values
-    func setCellWithValuesOf(_ movie: Movie){
-        updateUI(title: movie.title, releaseDate: movie.year, rating: movie.rate, overview: movie.overview, poster: movie.posterImage)
+    func setCellWithValuesOf(_ movie: Movie) { updateUI(
+        title: movie.title,
+        releaseDate: movie.year,
+        rating: movie.rate,
+        overview: movie.overview,
+        poster: movie.posterImage)
+        
     }
     
     //Update the UI Views
-    private func updateUI(title: String?, releaseDate: String?, rating: Double?, overview: String?, poster: String?){
+    private func updateUI(
+        title: String?,
+        releaseDate: String?,
+        rating: Double?,
+        overview: String?,
+        poster: String?) {
         
-        self.movieTitle.text = title
-
-        self.movieYear.text = convertDateFormater(releaseDate)
-
-        guard let rate = rating else {return}
-        self.movieRate.text = String(rate)
+        movieTitle.text = title
+        movieYear.text = convertDateFormater(releaseDate)
+            
+        guard let rate = rating else { return }
+        movieRate.text = String(rate)
         
-        self.movieOverview.text = overview
+        movieOverview.text = overview
         
         guard let posterString = poster else {return}
         urlString = "https://image.tmdb.org/t/p/w300" + posterString
 
         guard let posterImageURL = URL(string: urlString) else {
-            self.moviePoster.image = UIImage(named: "noImageAvailable")
+            moviePoster.image = UIImage(named: "noImageAvailable")
             return
         }
 
-        //Before we download the image we clear out th old one
-        self.moviePoster.image = nil
-
+        moviePoster.image = nil
+            
         getImageDataFrom(url: posterImageURL)
-        
     }
     
     //MARK - Get Image Data
@@ -144,26 +147,24 @@ class MovieTableViewCell: UITableViewCell {
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
-            //Handle error
+        DispatchQueue.main.async {
+                
             if let error = error {
                 print("DataTask error: \(error.localizedDescription) ")
                 return
             }
             
             guard let data = data else {
-                //Handle Empty Data
                 print("Empty Data")
                 return
             }
             
-            DispatchQueue.main.async {
+            
                 if let image = UIImage(data: data){
                     self.moviePoster.image = image
                 }
-            }
+        }
             
         }.resume()
-        
     }
-    
 }

@@ -26,12 +26,11 @@ class MovieDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func loadView() {
         getImage(poster: movieDetails.posterImage)
-        baseView.movieRate.text = "Rating: " + String(format: "%.1f", movieDetails.rate ?? "")
+        baseView.movieRate.text? = "Rating: " + String(format: "%.1f", movieDetails.rate ?? "")
         baseView.movieYear.text = movieDetails.year
         baseView.movieOverview.text = movieDetails.overview
         view = baseView
@@ -50,7 +49,7 @@ class MovieDetailsViewController: UIViewController {
     
     private func getImage(poster: String?) {
         
-        guard let posterString = poster else {return}
+        guard let posterString = poster else { return }
         urlString = "https://image.tmdb.org/t/p/w300" + posterString
         
         guard let posterImageURL = URL(string: urlString) else {
@@ -60,28 +59,27 @@ class MovieDetailsViewController: UIViewController {
         getImageDataFrom(url: posterImageURL)
     }
 
-    //MARK - Get Image Data
-    private func getImageDataFrom(url: URL){
+    private func getImageDataFrom(url: URL) {
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            //Handle error
+    URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+        DispatchQueue.main.async {
+                
             if let error = error {
                 print("DataTask error: \(error.localizedDescription) ")
                 return
             }
             
             guard let data = data else {
-                //Handle Empty Data
                 print("Empty Data")
                 return
             }
             
-            DispatchQueue.main.async {
-                if let image = UIImage(data: data){
-                    self.baseView.moviePoster.image = image
-                }
+            if let image = UIImage(data: data){
+                self.baseView.moviePoster.image = image
             }
-            
-        }.resume()
-     }
+        }
+    }.resume()
+        
+    }
 }

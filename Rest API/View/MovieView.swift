@@ -38,6 +38,4 @@ class MovieView: UIView {
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
-
-
 }
