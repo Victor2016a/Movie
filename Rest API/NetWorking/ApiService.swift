@@ -13,11 +13,10 @@ class ApiService {
     
     func getPopularMoviesData(complention: @escaping (Result<MoviesData, Error>) -> Void) {
         
-        let popularMoviesURL = "https://api.themoviedb.org/3/movie/popular?api_key=69df030a50ccc58db4c288beaa4c218a"
+        let popularMoviesURL = "https://api.themoviedb.org/3/movie/upcoming?api_key=69df030a50ccc58db4c288beaa4c218a"
         
         guard let url = URL(string: popularMoviesURL) else { return }
         
-        //Create Url Session - Work on the Background
         dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             DispatchQueue.main.async {

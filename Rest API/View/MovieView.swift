@@ -15,6 +15,12 @@ class MovieView: UIView {
         return table
     }()
     
+    let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        return spinner
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupViews()
@@ -28,6 +34,8 @@ class MovieView: UIView {
     private func setupViews(){
         backgroundColor = .white
         addSubview(tableView)
+        spinner.startAnimating()
+        addSubview(spinner)
     }
     
     private func setupConstraints() {
@@ -35,7 +43,10 @@ class MovieView: UIView {
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 }

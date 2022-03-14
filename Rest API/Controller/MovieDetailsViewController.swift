@@ -30,7 +30,7 @@ class MovieDetailsViewController: UIViewController {
     
     override func loadView() {
         getImage(poster: movieDetails.posterImage)
-        baseView.movieRate.text? = "Rating: " + String(format: "%.1f", movieDetails.rate ?? "")
+        baseView.movieRate.text = "Rating: " + String(format: "%.1f", movieDetails.rate ?? "")
         baseView.movieYear.text = movieDetails.year
         baseView.movieOverview.text = movieDetails.overview
         view = baseView
@@ -42,7 +42,7 @@ class MovieDetailsViewController: UIViewController {
     }
     
     @objc private func alertConfirm() {
-        let alert = UIAlertController(title: "You Buy \(movieDetails.title ?? "")", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "You Bought \(movieDetails.title ?? "")", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Confirm", style: .cancel, handler: nil))
         present(alert, animated: true)
     }

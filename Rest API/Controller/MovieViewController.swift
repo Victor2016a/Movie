@@ -19,18 +19,19 @@ class MovieViewController: UIViewController {
     }
     
     override func loadView() {
-        title = "Popular Movies"
+        title = "Up Coming"
         view = baseView
     }
     
     private func loadUpComingMoviesData() {
         self.viewModel.fetchPopularMoviesData { [weak self] in
-        self?.baseView.tableView.reloadData()
+            self?.baseView.tableView.reloadData()
+            self?.baseView.spinner.stopAnimating()
         }
     }
     
     private func configureTableView() {
-        baseView.tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "cell")
+        baseView.tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.identifier)
         baseView.tableView.dataSource = self
         baseView.tableView.delegate = self
     }
@@ -43,7 +44,7 @@ extension MovieViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MovieTableViewCell else { return .init() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier, for: indexPath) as? MovieTableViewCell else { return .init() }
         let movie = viewModel.cellForRowAt(indexPath: indexPath)
         cell.setCellWithValuesOf(movie)
         return cell

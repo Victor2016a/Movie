@@ -9,6 +9,8 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     
+    static let identifier = "MovieTableViewCell"
+    
     private var moviePoster: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -103,7 +105,6 @@ class MovieTableViewCell: UITableViewCell {
     
     private var urlString: String = ""
     
-    //Setup Movies Values
     func setCellWithValuesOf(_ movie: Movie) { updateUI(
         title: movie.title,
         releaseDate: movie.year,
@@ -113,7 +114,6 @@ class MovieTableViewCell: UITableViewCell {
         
     }
     
-    //Update the UI Views
     private func updateUI(
         title: String?,
         releaseDate: String?,
@@ -129,7 +129,7 @@ class MovieTableViewCell: UITableViewCell {
         
         movieOverview.text = overview
         
-        guard let posterString = poster else {return}
+        guard let posterString = poster else { return }
         urlString = "https://image.tmdb.org/t/p/w300" + posterString
 
         guard let posterImageURL = URL(string: urlString) else {
@@ -142,10 +142,9 @@ class MovieTableViewCell: UITableViewCell {
         getImageDataFrom(url: posterImageURL)
     }
     
-    //MARK - Get Image Data
-    private func getImageDataFrom(url: URL){
+    private func getImageDataFrom(url: URL) {
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        URLSession.shared.dataTask(with: url) { (data, _ , error) in
             
         DispatchQueue.main.async {
                 
@@ -159,10 +158,9 @@ class MovieTableViewCell: UITableViewCell {
                 return
             }
             
-            
-                if let image = UIImage(data: data){
-                    self.moviePoster.image = image
-                }
+            if let image = UIImage(data: data){
+                self.moviePoster.image = image
+            }
         }
             
         }.resume()
