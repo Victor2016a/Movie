@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class MovieView: UIView {
     
@@ -15,8 +16,8 @@ class MovieView: UIView {
         return table
     }()
     
-    let spinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView(style: .large)
+    let spinner: NVActivityIndicatorView = {
+        let spinner = NVActivityIndicatorView(frame: .zero, type: .ballPulse, color: .lightGray, padding: .none)
         spinner.translatesAutoresizingMaskIntoConstraints = false
         return spinner
     }()
@@ -46,7 +47,9 @@ class MovieView: UIView {
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
-            spinner.centerYAnchor.constraint(equalTo: centerYAnchor)
+            spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
+            spinner.widthAnchor.constraint(equalToConstant: 70),
+            spinner.heightAnchor.constraint(equalToConstant: 70)
         ])
     }
 }
