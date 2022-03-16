@@ -103,6 +103,10 @@ class MovieTableViewCell: UITableViewCell {
         ])
     }
     
+    override func prepareForReuse() {
+        moviePoster.image = nil
+    }
+    
     private var urlString: String = ""
     
     func setCellWithValuesOf(_ movie: Movie) { updateUI(
@@ -136,33 +140,9 @@ class MovieTableViewCell: UITableViewCell {
             moviePoster.image = UIImage(named: "noImageAvailable")
             return
         }
-
-        moviePoster.image = nil
             
-        getImageDataFrom(url: posterImageURL)
-    }
-    
-    private func getImageDataFrom(url: URL) {
-        
-        URLSession.shared.dataTask(with: url) { (data, _ , error) in
-            
-        DispatchQueue.main.async {
-                
-            if let error = error {
-                print("DataTask error: \(error.localizedDescription) ")
-                return
-            }
-            
-            guard let data = data else {
-                print("Empty Data")
-                return
-            }
-            
-            if let image = UIImage(data: data){
-                self.moviePoster.image = image
-            }
+        downloadImageFrom(url: posterImageURL) { [weak self] (image, error) in
+            self?.moviePoster.image = image
         }
-            
-        }.resume()
     }
 }

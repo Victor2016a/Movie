@@ -56,30 +56,8 @@ class MovieDetailsViewController: UIViewController {
             baseView.moviePoster.image = UIImage(named: "noImageAvailable")
             return
         }
-        getImageDataFrom(url: posterImageURL)
-    }
-
-    private func getImageDataFrom(url: URL) {
-        
-    URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
-        DispatchQueue.main.async {
-                
-            if let error = error {
-                print("DataTask error: \(error.localizedDescription) ")
-                return
-            }
-            
-            guard let data = data else {
-                print("Empty Data")
-                return
-            }
-            
-            if let image = UIImage(data: data){
-                self.baseView.moviePoster.image = image
-            }
+        downloadImageFrom(url: posterImageURL) { [weak self] (image, error) in
+            self?.baseView.moviePoster.image = image
         }
-    }.resume()
-        
     }
 }
