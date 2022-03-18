@@ -9,7 +9,6 @@ import Foundation
 
 struct MoviesData: Decodable{
     let movies: [Movie]
-    
     private enum CodingKeys: String, CodingKey{
         case movies = "results"
     }

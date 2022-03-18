@@ -12,33 +12,29 @@ class MovieViewModel {
     private var apiService = ApiService()
     private var popularMovies = [Movie]()
     
-    func fetchPopularMoviesData(completion: @escaping() -> () ){
-        
+    func fetchPopularMoviesData(completion: @escaping() -> Void ){
+
         apiService.getPopularMoviesData { [weak self] (result) in
             
         switch result {
-            
+
         case .success(let listOf):
             self?.popularMovies = listOf.movies
             completion()
-            
+
         case .failure(let error):
             print("Error Processing json data: \(error)")
         }
-        
+            
         }
-        
     }
 
     func numberOfRowsInSection(section: Int) -> Int {
-        if popularMovies.count != 0 {
-            return popularMovies.count
-        }
-        return 0
+        popularMovies.count
     }
     
     func cellForRowAt (indexPath: IndexPath) -> Movie {
-        return popularMovies[indexPath.row]
+        popularMovies[indexPath.row]
     }
     
 }
