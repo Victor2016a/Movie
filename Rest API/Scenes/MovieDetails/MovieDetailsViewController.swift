@@ -56,8 +56,9 @@ class MovieDetailsViewController: UIViewController {
             baseView.moviePoster.image = UIImage(named: "noImageAvailable")
             return
         }
-        downloadImageFrom(url: posterImageURL) { [weak self] (image, error) in
-            self?.baseView.moviePoster.image = image
+      ImageProvider.shared.fecthImage(
+        url: posterImageURL) { [weak self] image in
+          self?.baseView.moviePoster.image = image
         }
     }
 }

@@ -29,8 +29,7 @@ class MovieDetailsView: UIView {
     
     var movieTitle: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 17)
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -39,7 +38,6 @@ class MovieDetailsView: UIView {
         let label = UILabel()
         label.textColor = .lightGray
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 25)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -54,7 +52,6 @@ class MovieDetailsView: UIView {
     var movieRate: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 25)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
