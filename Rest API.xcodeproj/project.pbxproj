@@ -21,6 +21,8 @@
 		13BDBBED27B038BB006259D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BDBBEC27B038BB006259D5 /* Assets.xcassets */; };
 		13BDBBF027B038BB006259D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13BDBBEE27B038BB006259D5 /* LaunchScreen.storyboard */; };
 		13BDBBF827B03A1B006259D5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDBBF727B03A1B006259D5 /* Model.swift */; };
+		13DE03482800B65E00CB803F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DE03472800B65E00CB803F /* Coordinator.swift */; };
+		13DE034A2800B66E00CB803F /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DE03492800B66E00CB803F /* MainCoordinator.swift */; };
 		918792873FAD7746E2E1E89D /* Pods_Rest_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8C6A25FCD1C96768DF5668 /* Pods_Rest_API.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		13BDBBEF27B038BB006259D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13BDBBF127B038BB006259D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13BDBBF727B03A1B006259D5 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		13DE03472800B65E00CB803F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		13DE03492800B66E00CB803F /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		6A8C6A25FCD1C96768DF5668 /* Pods_Rest_API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rest_API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4698125BF0D6A7E7C178758 /* Pods-Rest API.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rest API.release.xcconfig"; path = "Target Support Files/Pods-Rest API/Pods-Rest API.release.xcconfig"; sourceTree = "<group>"; };
 		E56B00EACAFBA4E008DB584A /* Pods-Rest API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rest API.debug.xcconfig"; path = "Target Support Files/Pods-Rest API/Pods-Rest API.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 		13BDBBE227B038B8006259D5 /* Rest API */ = {
 			isa = PBXGroup;
 			children = (
+				13DE03462800B5EF00CB803F /* Coordinator */,
 				13F2E41827FB772B00EB6F88 /* Scenes */,
 				13872EDE27BEF5D100BA96A2 /* Extension */,
 				13872EDD27BEB90B00BA96A2 /* NetWorking */,
@@ -132,6 +137,15 @@
 				13BDBBF727B03A1B006259D5 /* Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		13DE03462800B5EF00CB803F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				13DE03472800B65E00CB803F /* Coordinator.swift */,
+				13DE03492800B66E00CB803F /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		13F2E41827FB772B00EB6F88 /* Scenes */ = {
@@ -278,7 +292,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				13722E2227BD4B5700A2E4B5 /* MovieDetailsViewController.swift in Sources */,
+				13DE034A2800B66E00CB803F /* MainCoordinator.swift in Sources */,
 				13872EE227BF1D2800BA96A2 /* String+Extensions.swift in Sources */,
+				13DE03482800B65E00CB803F /* Coordinator.swift in Sources */,
 				13BDBBE827B038B9006259D5 /* MovieViewController.swift in Sources */,
 				136F5DAB27B150540066125E /* ApiService.swift in Sources */,
 				136F5DB127B1959B0066125E /* MovieTableViewCell.swift in Sources */,

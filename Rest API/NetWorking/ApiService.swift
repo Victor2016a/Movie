@@ -9,12 +9,15 @@ import Foundation
 
 class ApiService {
   private var dataTask: URLSessionDataTask?
+  private let baseURL = "https://api.themoviedb.org/3/movie/"
+  private let movies = "popular"
+  private let apiKey = "69df030a50ccc58db4c288beaa4c218a"
   
   func getPopularMoviesData(complention: @escaping (Result<MoviesData, Error>) -> Void) {
     
-    let popularMoviesURL = "https://api.themoviedb.org/3/movie/upcoming?api_key=69df030a50ccc58db4c288beaa4c218a"
+    let moviesUrl = baseURL + movies + "?api_key=" + apiKey
     
-    guard let url = URL(string: popularMoviesURL) else { return }
+    guard let url = URL(string: moviesUrl) else { return }
     
     dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
       
