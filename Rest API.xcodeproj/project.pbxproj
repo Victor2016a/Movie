@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132C743628368D850013488E /* Rest_API_UnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C743528368D850013488E /* Rest_API_UnitTest.swift */; };
 		136F5DAB27B150540066125E /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F5DAA27B150540066125E /* ApiService.swift */; };
 		136F5DAF27B15E350066125E /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F5DAE27B15E350066125E /* MovieViewModel.swift */; };
 		136F5DB127B1959B0066125E /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136F5DB027B1959B0066125E /* MovieTableViewCell.swift */; };
@@ -26,7 +27,19 @@
 		918792873FAD7746E2E1E89D /* Pods_Rest_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8C6A25FCD1C96768DF5668 /* Pods_Rest_API.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		132C743728368D850013488E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 13BDBBD827B038B8006259D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13BDBBDF27B038B8006259D5;
+			remoteInfo = "Rest API";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		132C743328368D850013488E /* Rest API UnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rest API UnitTest.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		132C743528368D850013488E /* Rest_API_UnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rest_API_UnitTest.swift; sourceTree = "<group>"; };
 		136F5DAA27B150540066125E /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		136F5DAE27B15E350066125E /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		136F5DB027B1959B0066125E /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
@@ -51,6 +64,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		132C743028368D850013488E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13BDBBDD27B038B8006259D5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -79,6 +99,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		132C743428368D850013488E /* Rest API UnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				132C743528368D850013488E /* Rest_API_UnitTest.swift */,
+			);
+			path = "Rest API UnitTest";
+			sourceTree = "<group>";
+		};
 		13872EDD27BEB90B00BA96A2 /* NetWorking */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				13BDBBE227B038B8006259D5 /* Rest API */,
+				132C743428368D850013488E /* Rest API UnitTest */,
 				13BDBBE127B038B8006259D5 /* Products */,
 				0CA1E5D67E53005DB4D2D4A2 /* Pods */,
 				110F3E1E6F43AD6015350613 /* Frameworks */,
@@ -110,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				13BDBBE027B038B8006259D5 /* Rest API.app */,
+				132C743328368D850013488E /* Rest API UnitTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,6 +210,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		132C743228368D850013488E /* Rest API UnitTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 132C743B28368D850013488E /* Build configuration list for PBXNativeTarget "Rest API UnitTest" */;
+			buildPhases = (
+				132C742F28368D850013488E /* Sources */,
+				132C743028368D850013488E /* Frameworks */,
+				132C743128368D850013488E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				132C743828368D850013488E /* PBXTargetDependency */,
+			);
+			name = "Rest API UnitTest";
+			productName = "Rest API UnitTest";
+			productReference = 132C743328368D850013488E /* Rest API UnitTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		13BDBBDF27B038B8006259D5 /* Rest API */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13BDBBF427B038BB006259D5 /* Build configuration list for PBXNativeTarget "Rest API" */;
@@ -209,6 +257,10 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					132C743228368D850013488E = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 13BDBBDF27B038B8006259D5;
+					};
 					13BDBBDF27B038B8006259D5 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -228,11 +280,19 @@
 			projectRoot = "";
 			targets = (
 				13BDBBDF27B038B8006259D5 /* Rest API */,
+				132C743228368D850013488E /* Rest API UnitTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		132C743128368D850013488E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13BDBBDE27B038B8006259D5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -287,6 +347,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		132C742F28368D850013488E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				132C743628368D850013488E /* Rest_API_UnitTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13BDBBDC27B038B8006259D5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,6 +378,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		132C743828368D850013488E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13BDBBDF27B038B8006259D5 /* Rest API */;
+			targetProxy = 132C743728368D850013488E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		13BDBBEE27B038BB006259D5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -322,6 +398,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		132C743928368D850013488E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 63T8PTV9GL;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "victor.Rest-API-UnitTest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rest API.app/Rest API";
+			};
+			name = Debug;
+		};
+		132C743A28368D850013488E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 63T8PTV9GL;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "victor.Rest-API-UnitTest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rest API.app/Rest API";
+			};
+			name = Release;
+		};
 		13BDBBF227B038BB006259D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -499,6 +611,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		132C743B28368D850013488E /* Build configuration list for PBXNativeTarget "Rest API UnitTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				132C743928368D850013488E /* Debug */,
+				132C743A28368D850013488E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		13BDBBDB27B038B8006259D5 /* Build configuration list for PBXProject "Rest API" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
