@@ -22,4 +22,13 @@ class Rest_API_UnitTest: XCTestCase {
     super.tearDown()
   }
   
+  func testMovieDetailsView() {
+    let movieDetails = MovieDetailsView()
+    XCTAssertNotNil(movieDetails)
+  }
+  
+  func testMovieTableViewCell() {
+    let movieTableViewCell = MovieTableViewCell()
+    XCTAssertNotNil(movieTableViewCell)
+  }
 }
